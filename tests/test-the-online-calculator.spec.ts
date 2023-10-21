@@ -20,7 +20,7 @@ test.describe('Testing online calculator', () => {
     await homePage.clickDivideButton();
     await homePage.clickNum(2);
     await homePage.clickCalculateButton();
-    expect(await homePage.getGesultField()).toHaveValue('1');
+    expect(await homePage.getResultFieldValue()).toEqual('1');
   });
 
   test('check multiply operation', async ({ page }) => {
@@ -29,7 +29,7 @@ test.describe('Testing online calculator', () => {
     await homePage.clickMultiplyButton();
     await homePage.clickNum(2);
     await homePage.clickCalculateButton();
-    expect(await homePage.getGesultField()).toHaveValue('4');
+    expect(await homePage.getResultFieldValue()).toEqual('4');
   });
 
   test('check subtract operation', async ({ page }) => {
@@ -38,7 +38,7 @@ test.describe('Testing online calculator', () => {
     await homePage.clickSubtractButton();
     await homePage.clickNum(2);
     await homePage.clickCalculateButton();
-    expect(await homePage.getGesultField()).toHaveValue('0');
+    expect(await homePage.getResultFieldValue()).toEqual('0');
   });
 
   test('check add operation', async ({ page }) => {
@@ -47,7 +47,7 @@ test.describe('Testing online calculator', () => {
     await homePage.clickAddButton();
     await homePage.clickNum(2);
     await homePage.clickCalculateButton();
-    expect(await homePage.getGesultField()).toHaveValue('4');
+    expect(await homePage.getResultFieldValue()).toEqual('4');
   });
 
   test('check divide on 0 operation', async ({ page }) => {
@@ -56,6 +56,6 @@ test.describe('Testing online calculator', () => {
     await homePage.clickDivideButton();
     await homePage.clickNum(0);
     await homePage.clickCalculateButton();
-    expect(await homePage.getGesultField()).toHaveValue('Not a Number');
+    expect(await homePage.getResultFieldValue()).toEqual('Not a Number');
   });
 });

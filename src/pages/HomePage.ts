@@ -3,8 +3,6 @@ import { Locator, Page } from '@playwright/test';
 export default class HomePage {
   private page: Page;
 
-  private resultField: Locator;
-
   private divideButton: Locator;
   private multiplyButton: Locator;
   private subtractButton: Locator;
@@ -14,8 +12,6 @@ export default class HomePage {
   constructor(page: Page) {
     this.page = page;
 
-    this.resultField = page.locator('#display');
-
     this.divideButton = page.locator('[name="divide"]');
     this.multiplyButton = page.locator('[name="multiply"]');
     this.subtractButton = page.locator('[name="subtract"]');
@@ -23,8 +19,8 @@ export default class HomePage {
     this.calculateButton = page.locator('[name="calculate"]');
   }
 
-  async getGesultField() {
-    return this.resultField;
+  getResultFieldValue() {
+    return this.page.$eval("#display", el => el.value);
   }
 
   async clickNum(value: number) {
